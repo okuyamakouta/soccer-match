@@ -20,12 +20,12 @@
         
         <div class="form-group">
             {!! Form::label('password', 'パスワード') !!}
-            {!! Form::password('password',  ['class' => 'form-group']) !!}
+            {!! Form::password('password',  ['class' => 'form-control']) !!}
         </div>
         
         <div class="form-group">
             {!! Form::label('password_confirmation', '確認') !!}
-            {!! Form::password('password_confirmation',  ['class' => 'form-group']) !!}
+            {!! Form::password('password_confirmation',  ['class' => 'form-control']) !!}
         </div>
         
         {!! Form::submit('新規登録', ['class' => 'btn btn-primary btn-block']) !!}
