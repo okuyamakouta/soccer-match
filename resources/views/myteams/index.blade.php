@@ -22,7 +22,7 @@
 </thead>
 <tbody>
     <tr>
-        <td>{{$introduce->introduce}}</td>
+        <td>{{optional($introduce)->introduce}}</td>
     </tr>
 </tbody>
 </div>
