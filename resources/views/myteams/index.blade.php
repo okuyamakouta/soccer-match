@@ -22,7 +22,7 @@
 </thead>
 <tbody>
     <tr>
-        <td>{{$user->introduce}}</td>
+        <td>{{$introduce->introduce}}</td>
     </tr>
 </tbody>
 </div>

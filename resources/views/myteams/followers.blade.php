@@ -7,7 +7,7 @@
             @include('myteams.navtabs')
             {{-- ユーザ一覧 --}}
             @include('users.users')
-        
+            @include('myteams.followers_users')
         </div>
 </div>
 @endsection

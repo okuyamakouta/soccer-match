@@ -45,4 +45,28 @@ class UsersController extends Controller
        //フォロワー一覧ビューで表示
        return view('myteams.followers', ['user' => $user, 'users' => $followers]);
    }
+  public function approvings($user_id)
+  {
+      //ユーザを検索して取得
+       $user = User::findOrFail($user_id);
+       
+       $user->loadRelationshipCounts();
+       
+       //ユーザのフォロワー一覧を取得
+       $approvings = $user->approvings()->paginate(10);
+       //フォロワー一覧ビューで表示
+       return view('myteams.followings', ['user' => $user, 'users' => $approvings]);
+  }
+  public function approvers($user_id)
+  {
+      //ユーザを検索して取得
+       $user = User::findOrFail($user_id);
+       
+       $user->loadRelationshipCounts();
+       
+       //ユーザのフォロワー一覧を取得
+       $approvers = $user->approvers()->paginate(10);
+       //フォロワー一覧ビューで表示
+       return view('myteams.followers', ['user' => $user, 'users' => $approvers]);
+  }
 }

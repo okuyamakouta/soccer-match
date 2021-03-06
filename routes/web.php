@@ -26,6 +26,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
         Route::get('followings', 'UsersController@followings')->name('myteams.followings');
         Route::get('followers', 'UsersController@followers')->name('myteams.followers');
+        
+    });
+    
+            Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('approve', 'ApprovesController@store')->name('approves.approve');
+        Route::delete('unapprove', 'ApprovesController@destroy')->name('approves.unapprove');
     });
 
 //ユーザ詳細

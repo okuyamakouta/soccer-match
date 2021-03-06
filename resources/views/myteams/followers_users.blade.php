@@ -9,7 +9,9 @@
             <div>
                 {{--他チーム詳細ページへのリンク--}}
                 <p>{!! link_to_route('users.show', '詳細を見る',['user' => $user->id]) !!}</p>
-
+            <div class="col-sm-3">
+                @include('myteams.followers_approve')
+            </div>
                
             </div>
 

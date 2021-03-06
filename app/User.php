@@ -84,6 +84,55 @@ class User extends Authenticatable
         // フォロー中ユーザの中に $userIdのものが存在するか
         return $this->followings()->where('follow_id', $userId)->exists();
     }
+    //このユーザが承認しているユーザ
+    public function approvings()
+    {
+        return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'follow_id')->withTimestamps();
+    }
+    //このユーザを承認しているユーザ
+    public function approvers()
+    {
+        return $this->belongsToMany(User::class, 'user_follow', 'follow_id', 'user_id')->withTimestamps();
+    }
+    //承認している
+    public function approve($userId)
+    {
+        //すでに承認してるかの確認
+        $exist = $this->is_approving($userId);
+        //対象が自分自身かどうか
+        $its_me = $this->id == $userId;
+        
+        if($exist && !$its_me){
+            //すでに承認してたら何もしない
+            return false;
+        } else {
+            //承認してないならする
+            $this->approvings()->attach($userId);
+            return true;
+        }
+    }
+    //承認されていない
+        public function unapprove($userId)
+        {
+             //すでに承認しているかの確認
+       $exist = $this->is_approving($userId);
+       //対象が自分自身かどうか
+       $its_me = $this->id == $userId;
+       if($exist && !$its_me){
+       // すでに承認していればフォローを外す
+            $this->approvings()->detach($userId);
+            return true;
+        } else {
+            // 未フォローであれば何もしない
+            return false;
+        }
+        }
+    
+    public function is_approving($userId)
+    {
+                //  承認中ユーザの中に $userIdのものが存在するか
+        return $this->approvings()->where('follow_id', $userId)->exists();
+    }
     public function loadRelationshipCounts()
     {
         $this->loadCount(['followings', 'followers']);

@@ -28,7 +28,10 @@
 </tbody>
 
 <div class="col-sm-3">
-@include('user_follow.follow_button')
+
 </div>
 
+<div class="col-sm-3">
+    @include('user_follow.follow_button')
+</div>
 @endsection
