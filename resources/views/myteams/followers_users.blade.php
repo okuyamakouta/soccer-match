@@ -1,8 +1,14 @@
+@extends('layouts.app')
+
+@section('content')
 @if(count($users)>0)
+<div class="col-sm-8">
+    @include('myteams.navtabs')
 <ul class="list-unstyled">
     @foreach($users as $user)
     <li class="media">
         <div class="media-body">
+            
             <div>
                 {{ $user->name }}
             </div>
@@ -20,6 +26,9 @@
     @endforeach
     
 </ul>
+</div>
  {{-- ページネーションのリンク --}}
     {{ $users->links() }}
+    
 @endif
+@endsection
