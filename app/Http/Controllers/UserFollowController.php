@@ -12,9 +12,9 @@ class UserFollowController extends Controller
         //認証済みユーザがidのユーザをフォローする
         \Auth::user()->follow($id);
         
-        return back();
+        return redirect('/');
     }
-    //ユーザをアンフォローするアクション
+//ユーザをアンフォローするアクション
     public function destroy($id)
     {
         \Auth::user()->unfollow($id);
