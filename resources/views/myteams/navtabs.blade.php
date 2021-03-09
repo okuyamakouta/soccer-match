@@ -16,7 +16,7 @@
     </li>
     {{-- 対戦応募された一覧タブ --}}
     <li class="nav-item">
-        <a href="{{ route('myteams.followers', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('myteams.followers') ? 'active' : '' }}">
+        <a href="{{ route('myteams.followers_users', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('myteams.followers_users') ? 'active' : '' }}">
             対戦応募されたチーム
             <span class="badge badge-secondary">{{ $user->followers_count }}</span>
         </a>
