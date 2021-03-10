@@ -12,7 +12,7 @@ class UserFollowController extends Controller
         //認証済みユーザがidのユーザをフォローする
         \Auth::user()->follow($id);
         
-        return redirect('myteams.followings');
+        return back();
     }
 //ユーザをアンフォローするアクション
     public function destroy($id)

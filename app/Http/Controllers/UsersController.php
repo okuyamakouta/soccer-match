@@ -67,6 +67,6 @@ class UsersController extends Controller
        //ユーザのフォロワー一覧を取得
        $approvers = $user->approvers()->paginate(10);
        //フォロワー一覧ビューで表示
-       return view('myteams.followers', ['user' => $user, 'users' => $approvers]);
+       return view('myteams.followers_users', ['user' => $user, 'users' => $approvers]);
   }
 }
