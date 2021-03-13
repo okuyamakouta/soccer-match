@@ -18,6 +18,8 @@ class UsersController extends Controller
         //idの値でチームを取得して表示
         $user = User::findOrFail($id);
         
+        
+        
         //他チーム詳細ビューで表示
         return view('users.show', ['user' => $user]);
     }

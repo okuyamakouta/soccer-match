@@ -39,6 +39,10 @@ class User extends Authenticatable
    public function introduces() {
        return $this->hasone(Introduce::class);
    }
+   public function loadRelationshipCounts()
+    {
+        $this->loadCount( 'followings', 'followers');
+    }
    //このユーザがフォロー中のユーザ
    public function followings()
    {
@@ -133,8 +137,5 @@ class User extends Authenticatable
                 //  承認中ユーザの中に $userIdのものが存在するか
         return $this->approvings()->where('follow_id', $userId)->exists();
     }
-    public function loadRelationshipCounts()
-    {
-        $this->loadCount(['followings', 'followers']);
-    }
+    
 }

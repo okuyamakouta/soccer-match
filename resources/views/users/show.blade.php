@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="text-center">
     <h1>プロフィール</h1>
 </div>
@@ -34,4 +35,5 @@
 <div class="col-sm-3">
     @include('user_follow.follow_button')
 </div>
+
 @endsection

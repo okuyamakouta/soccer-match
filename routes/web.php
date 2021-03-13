@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('followers', 'UsersController@followers')->name('myteams.followers_users');
         
     });
-     Route::resource('users', 'UsersController', ['only' => ['index','show']]);
+    
     
             Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('approve', 'ApprovesController@store')->name('approves.approve');
@@ -38,6 +38,6 @@ Route::group(['middleware' => ['auth']], function () {
 //ユーザ詳細
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('myteams', 'MyteamController');
-   
+    Route::resource('users', 'UsersController', ['only' => ['index','show']]);
     }); 
 });

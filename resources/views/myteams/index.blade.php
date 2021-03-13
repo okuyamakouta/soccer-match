@@ -12,7 +12,7 @@
 </thead>
 <tbody>
     <tr>
-        <td>{{$user->name}}</td>
+        <td>{{optional($user)->name}}</td>
     </tr>
 </tbody>
 <thead>

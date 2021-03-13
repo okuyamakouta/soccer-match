@@ -11,12 +11,13 @@ class MyteamController extends Controller
 {
     public function index() {
         $user= User::all();
+        
         $data = [];
         if(\Auth::check()) {
             //認証済みユーザを取得
             $user = \Auth::user();
             $introduce = $user->introduces;
-
+            $user->loadRelationshipCounts();
             // dd([
             //     '正しい' => $user->introduces,
             //     'get式' => $user->introduces()->get(),
